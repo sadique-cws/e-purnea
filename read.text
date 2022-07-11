@@ -1,0 +1,8 @@
+apply business
+
+1. user : email, contact, password, 
+
+2. category : id, cat_title, cat_description
+
+3. business = id,title, proprietor, primary_contact, secondary_contact(null), description, email(null), website(null), address, city, state, user_id (FK), status, category_id (FK), image, pin_code
+

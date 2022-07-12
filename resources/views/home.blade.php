@@ -2,6 +2,8 @@
 
 
 @section('content')
+    @include('components/home-banner')
+
     <div class="container mb-5">
         <div class="row my-4">
             <div class="col-8">

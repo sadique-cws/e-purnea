@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -13,6 +14,7 @@ class HomeController extends Controller
     }
 
     public function add_biz(){
-        return view("add-biz");
+        $data['categories']  = Category::all();
+        return view("add-biz",$data);
     }
 }

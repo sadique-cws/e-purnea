@@ -18,7 +18,7 @@
                         </div>
                         <div class="mb-3 col">
                             <label for="">category</label>
-                            <select  name="category" class="form-select">
+                            <select  name="category_id" class="form-select">
                                 <option value="">Select category</option>
                                 @foreach ($categories as $item)
                                     <option value="{{$item->id}}">{{$item->cat_title}}</option>
@@ -96,7 +96,7 @@
                     <div class="row">
                         <div class="mb-3 col">
                             <label for="">pin_code</label>
-                            <input type="text" name="pin_code" class="form-control" value="{{old('pin_code')}}">
+                            <input type="text" name="pincode" class="form-control" value="{{old('pin_code')}}">
                             @error('pin_code')
                                 <p class="text-danger small">{{$message}}</p>
                             @enderror

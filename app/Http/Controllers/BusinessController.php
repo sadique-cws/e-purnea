@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Business;
 
 use Illuminate\Http\Request;
 
@@ -36,12 +37,12 @@ class BusinessController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'category' => 'required',
+            'category_id' => 'required',
             'proprietor' => 'required',
             'state' => 'required',
             'city' => 'required',
-            'pin_code' => 'required',
-            'image' => 'required',
+            'pincode' => 'required',
+            // 'image' => 'required',
             'email' => 'required',
             'website' => 'required',
             'address' => 'required',
@@ -49,6 +50,12 @@ class BusinessController extends Controller
             'secondary_contact' => 'required',
             'description' => 'required',
         ]);
+
+        Business::create($data);
+
+        return redirect()->route("homepage");
+
+
     }
 
     /**

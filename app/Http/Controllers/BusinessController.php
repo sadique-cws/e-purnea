@@ -42,7 +42,7 @@ class BusinessController extends Controller
             'state' => 'required',
             'city' => 'required',
             'pincode' => 'required',
-            // 'image' => 'required',
+            'image' => 'required|image',
             'email' => 'required',
             'website' => 'required',
             'address' => 'required',
@@ -50,6 +50,10 @@ class BusinessController extends Controller
             'secondary_contact' => 'required',
             'description' => 'required',
         ]);
+
+        $filename = $request->image->getClientOriginalName();
+        $request->image->move(public_path("images/biz"),$filename);
+        $data['image'] = $filename;
 
         Business::create($data);
 

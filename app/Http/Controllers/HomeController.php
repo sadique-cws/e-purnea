@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\{Category,Business};
 
 class HomeController extends Controller
 {
     //
 
     public function homepage(){
-        return view("home");
+        $data['business']=Business::all();
+        return view("home",$data);
     }
 
     public function add_biz(){

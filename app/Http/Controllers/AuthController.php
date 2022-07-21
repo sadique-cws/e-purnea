@@ -3,13 +3,24 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Auth;
 class AuthController extends Controller
 {
     //
 
-    public function login(){
-        echo "login page";
+    public function login(Request $req){
+       if($req->isMethod("post")){
+            $loginData = $req->only("email","password");
+            
+            if(Auth::attempt($loginData)){
+                return redirect()->route('homepage');
+            }
+            else{
+                
+                return redirect()->back()->with("error","sorry username and password is incorrect try again");
+            }
+       }
+        return view("login");
     }
     public function register(Request $req){
 
@@ -27,6 +38,7 @@ class AuthController extends Controller
         return view("register");
     }
     public function logout(){
-        echo "logout page";
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

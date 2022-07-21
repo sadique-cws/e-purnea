@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="mb-3 col">
                             <label for="">images</label>
-                            <input type="text" name="images" class="form-control">
+                            <input type="file" name="image" class="form-control">
                             @error('images')
                                 <p class="text-danger small">{{$message}}</p>
                             @enderror

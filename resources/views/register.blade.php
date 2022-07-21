@@ -43,6 +43,8 @@
         
     
             </form>
+            <a href="{{route('login')}}" class="small float-end text-decoration-none">Already have an account?</a>
+
         </div>
     </div>
 

@@ -5,11 +5,17 @@ use App\Http\Controllers\{BusinessController,HomeController,AuthController};
 
 
 Route::get("/",[HomeController::class,"homepage"])->name("homepage");
-Route::get("/add-business",[HomeController::class,"add_biz"])->name("add.biz");
 
 
 
 Route::resource('business', BusinessController::class);
+
+
+Route::middleware('auth')->group(function () {
+    Route::get("/add-business",[HomeController::class,"add_biz"])->name("add.biz");
+});
+
+
 
 
 // authcontroller routes
